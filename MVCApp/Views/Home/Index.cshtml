@@ -1,0 +1,25 @@
+﻿@model TestViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, @ViewBag.Name!</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class=text-center>
+    <form action="/" method="post">
+        <input type="text" name="ToDoList" />
+        <input type="submit" name="Submit" />
+    </form>
+    @for(int i = 0; i < Model.ToDoList.Count; i++)
+    {
+        <b>@Model.ToDoList[i]</b>
+        <br />
+    }
+</div>
+
+@section Danger{
+    <b>Warning! This is a section!</b>
+}

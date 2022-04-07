@@ -1,0 +1,32 @@
+﻿@model User //TestViewModel
+@{
+    ViewData["Title"] = "Test page";
+}
+
+<div class="text-center">
+    <!--
+    <h1>Welcome to my test page</h1>
+    <p>Visits: </p> <code>@*Model.Counter*@</code>
+    -->
+    @*<p>User: @Model.Name @Model.Surname</p>*@
+
+    @if (string.IsNullOrEmpty(Model.Name))
+    {
+        @using (Html.BeginForm("Index", "Test", FormMethod.Get))
+        {
+
+             @Html.TextBox("name", @Model.Name)
+            <br />
+            @Html.TextBox("surname", @Model.Surname)
+            <br />
+
+             <input type="submit" value="Show" />
+        }
+    }
+    else
+    {
+        @Html.Label("name", @Model.Name)
+        @Html.Label("surname", @Model.Surname)
+    }
+    
+</div>
